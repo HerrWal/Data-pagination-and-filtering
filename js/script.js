@@ -63,16 +63,16 @@ function addPagination (list) {
       linkList.insertAdjacentHTML('beforeend', li);
    }
 
-   const activeBtn = linkList.firstChild;
-   activeBtn.className = 'active'
-   
+   buttons = linkList.querySelectorAll('li button');
+   firstPageBtn = buttons[0];
+   firstPageBtn.className = 'active';  
    linkList.addEventListener('click', (event) => {
       const eventTarget = event.target;
       if (eventTarget.type === 'button') {
-         for (let i = 0; i < linkList.length; i++) {
-            button.classList.remove('active');
-          }
-         eventTarget.classList.add('active');
+         for (const button of buttons) {
+            button.classList.remove('active')
+            eventTarget.classList.add('active');
+          }         
          const pageNumber = eventTarget.textContent
          showPage (list, pageNumber)
       }
