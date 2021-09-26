@@ -21,7 +21,7 @@ function showPage (list, page) {
    const startIndex = (page * 9) - 9;
    const endIndex = (page * 9);
 
-   const studentList = document.querySelector('.student-list')
+   const studentList = document.querySelector('.student-list');
    studentList.innerHTML = '';
 
    for (let i = 0; i < list.length; i++) {
@@ -71,9 +71,9 @@ function addPagination (list) {
       if (eventTarget.type === 'button') {
          for (const button of buttons) {
             button.classList.remove('active')
-            eventTarget.classList.add('active');
+            eventTarget.classList.add('active')
           }         
-         const pageNumber = eventTarget.textContent
+         const pageNumber = eventTarget.textContent;
          showPage (list, pageNumber)
       }
    });
