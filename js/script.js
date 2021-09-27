@@ -84,3 +84,44 @@ function addPagination (list) {
 
 showPage (data, 1)
 addPagination (data)
+
+/*
+Extra Credit: Search bar
+*/
+
+// function createElement(elementName, property, value) {
+//    const element = document.createElement(elementName);
+//    element[property] = value;
+//    return element;
+// }
+
+const header = document.querySelector('.header');
+
+const label = document.createElement('label');
+label.setAttribute('for', 'search');
+label.classList.add('student-search');
+
+const searchBar = document.createElement('input');
+searchBar.id = 'search';
+searchBar.placeholder = 'search by name...';
+
+const searchButton = document.createElement('button');
+searchButton.type = 'button';
+
+const img = document.createElement('img');
+img.src = 'img/icn-search.svg';
+img.alt = 'Search icon';
+
+
+const span = document.createElement('span');
+span.textContent = 'Search by name';
+
+searchButton.appendChild(img);
+label.append(span, searchBar, searchButton);
+header.insertAdjacentElement('beforeend', label);
+
+//keyup event listener to list filters in real-time as the user types
+searchBar.addEventListener('keyup', (event) => {
+   const input = event.target;
+   console.log(input.value);
+});
