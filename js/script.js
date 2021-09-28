@@ -89,31 +89,30 @@ addPagination (data)
 Extra Credit: Search bar
 */
 
-// function createElement(elementName, property, value) {
-//    const element = document.createElement(elementName);
-//    element[property] = value;
-//    return element;
-// }
+function createElement(elementName) {
+   const element = document.createElement(elementName);
+   return element;
+}
 
 const header = document.querySelector('.header');
 
-const label = document.createElement('label');
+const label = createElement('label');
 label.setAttribute('for', 'search');
 label.classList.add('student-search');
 
-const searchBar = document.createElement('input');
+const searchBar = createElement('input');
 searchBar.id = 'search';
 searchBar.placeholder = 'search by name...';
 
-const searchButton = document.createElement('button');
+const searchButton = createElement('button');
 searchButton.type = 'button';
 
-const img = document.createElement('img');
+const img = createElement('img');
 img.src = 'img/icn-search.svg';
 img.alt = 'Search icon';
 
 
-const span = document.createElement('span');
+const span = createElement('span');
 span.textContent = 'Search by name';
 
 searchButton.appendChild(img);
@@ -121,7 +120,16 @@ label.append(span, searchBar, searchButton);
 header.insertAdjacentElement('beforeend', label);
 
 //keyup event listener to list filters in real-time as the user types
-searchBar.addEventListener('keyup', (event) => {
-   const input = event.target;
-   console.log(input.value);
-});
+// searchBar.addEventListener('keyup', (event) => {
+//    const input = event.target;
+//    for (let i = 0; i < data.length; i++) {
+//       const inputValue = input.value.toLowerCase();
+//       const studentName = `${data[i].name.first} ${data[i].name.last}`;      
+//       if (students[i].textContent === inputValue) {
+//          students[i].style.display = '';
+//       } else {
+//          students[i].style.display = 'none';
+//       }
+
+//    }
+// });
