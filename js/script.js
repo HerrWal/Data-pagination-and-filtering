@@ -83,7 +83,7 @@ function addPagination (list) {
 // // Call functions
 
 showPage (data, 1)
-addPagination (data)
+// addPagination (data)
 
 /*
 Extra Credit: Search bar
@@ -102,7 +102,7 @@ label.classList.add('student-search');
 
 const searchBar = createElement('input');
 searchBar.id = 'search';
-searchBar.placeholder = 'search by name...';
+searchBar.placeholder = 'Search by name...';
 
 const searchButton = createElement('button');
 searchButton.type = 'button';
@@ -119,8 +119,13 @@ searchButton.appendChild(img);
 label.append(span, searchBar, searchButton);
 header.insertAdjacentElement('beforeend', label);
 
-//keyup event listener to list filters in real-time as the user types
-// searchBar.addEventListener('keyup', (event) => {
+const studentItems = document.querySelectorAll('div.student-details');
+const search = document.getElementById('search');
+
+// const studentItems = document.getElementsByTagName('h3');
+
+// keyup event listener to list filters in real-time as the user types
+searchBar.addEventListener('keyup', (event) => {
 //    const input = event.target;
 //    for (let i = 0; i < data.length; i++) {
 //       const inputValue = input.value.toLowerCase();
@@ -132,4 +137,14 @@ header.insertAdjacentElement('beforeend', label);
 //       }
 
 //    }
-// });
+});
+
+// The function searchName to perform a search accepting two parameters
+// searchInput and names.
+function searchName (searchInput, names) {
+   for (let i = 0; i < names.length; i++) {
+      if (!(searchInput.value.length === 0) && names[i].children[1].textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
+         studentItems[0].parentElement.style.display = 'none';
+      }   
+   }
+}
