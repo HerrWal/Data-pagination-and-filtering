@@ -126,17 +126,7 @@ const search = document.getElementById('search');
 
 // keyup event listener to list filters in real-time as the user types
 searchBar.addEventListener('keyup', (event) => {
-//    const input = event.target;
-//    for (let i = 0; i < data.length; i++) {
-//       const inputValue = input.value.toLowerCase();
-//       const studentName = `${data[i].name.first} ${data[i].name.last}`;      
-//       if (students[i].textContent === inputValue) {
-//          students[i].style.display = '';
-//       } else {
-//          students[i].style.display = 'none';
-//       }
 
-//    }
 });
 
 // The function searchName to perform a search accepting two parameters
