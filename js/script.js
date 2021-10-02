@@ -20,7 +20,6 @@ This function will create and insert/append the elements needed to display a "pa
 function showPage (list, page) {
    const startIndex = (page * 9) - 9;
    const endIndex = (page * 9);
-
    const studentList = document.querySelector('.student-list');
    studentList.innerHTML = '';
 
@@ -80,10 +79,8 @@ function addPagination (list) {
 }
 
 
-// // Call functions
-
-showPage (data, 1)
-// addPagination (data)
+// Call functions
+ 
 
 /*
 Extra Credit: Search bar
@@ -119,22 +116,26 @@ searchButton.appendChild(img);
 label.append(span, searchBar, searchButton);
 header.insertAdjacentElement('beforeend', label);
 
-const studentItems = document.querySelectorAll('div.student-details');
 const search = document.getElementById('search');
-
-// const studentItems = document.getElementsByTagName('h3');
-
-// keyup event listener to list filters in real-time as the user types
-searchBar.addEventListener('keyup', (event) => {
-
-});
+const studentItems = document.getElementsByClassName('student-details');
 
 // The function searchName to perform a search accepting two parameters
 // searchInput and names.
 function searchName (searchInput, names) {
    for (let i = 0; i < names.length; i++) {
+      names[i].parentElement.style.display = 'none';
       if (!(searchInput.value.length === 0) && names[i].children[1].textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
-         studentItems[0].parentElement.style.display = 'none';
-      }   
+         names[i].parentElement.removeAttribute('style');
+      } else if (searchInput.value.length === 0) {
+         showPage (data, 1);
+      }  
    }
 }
+showPage (data, 1)
+
+// keyup event listener to list filters in real-time as the user types
+searchBar.addEventListener('keyup', () => {
+   addPagination (searchName(search, studentItems))
+   
+   // addPagination (studentList)  
+});
