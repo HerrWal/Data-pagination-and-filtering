@@ -136,12 +136,7 @@ const searchResults = [];
 
 // keyup event listener to list filters in real-time as the user types
 searchBar.addEventListener('keyup', () => {
-   if (searchBar.value === '') {
-      showPage(data, 1);
-      addPagination(data);
-   } else {
       searchName();
-   }
 });
 
 searchBar.addEventListener('submit', () => {
