@@ -39,6 +39,7 @@ function showPage (list, page) {
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
+
 // The function accept a single list parameter. And create pagination buttons
 // ass needed. One page per 9 students, in this case.
 function addPagination (list) {
@@ -57,7 +58,7 @@ function addPagination (list) {
   ` ;
       linkList.insertAdjacentHTML('beforeend', li);
    }
-// We create functionality to the buttons.
+   // Addition of functionality to the buttons.
    buttons = linkList.querySelectorAll('li button');
    firstPageBtn = buttons[0];
    firstPageBtn.className = 'active';  
@@ -78,6 +79,7 @@ function addPagination (list) {
 Extra Credit: Search bar
 */
 
+// DOM elements for a searchbar and a button and write JS to add functionality.
 function createElement(elementName) {
    const element = document.createElement(elementName);
    return element;
@@ -103,12 +105,10 @@ label.append(span, searchBar, searchButton);
 header.insertAdjacentElement('beforeend', label);
 
 // The function searchName to perform a search.
-
-
-function searchName () {
+const searchName = () => {
 const name = searchBar.value;
 const searchResults = [];
-
+   // Iteration of the list to compare the name match and push them to the results.
    for (let i = 0; i < data.length; i++) {
       const matchingName = `${data[i]['name']['first']} ${data[i]['name']['last']}`.toLocaleLowerCase();
       if (matchingName.includes(name.toLocaleLowerCase())) {
@@ -116,7 +116,7 @@ const searchResults = [];
          showPage(searchResults, 1);
          addPagination(searchResults);
       }
-
+      // If there are no results we print "No Results" to our search.
       if (searchResults == 0) {
          const ul = document.querySelector('.student-list');
          ul.innerHTML = `<li class="no-results"> 
@@ -128,18 +128,12 @@ const searchResults = [];
    }
 }
 
-// keyup event listener to list filters in real-time as the user types
-searchBar.addEventListener('keyup', () => {
-      searchName();
-});
+// keyup event listener to list filters in real-time as the user types the name. 
+searchBar.addEventListener('submit', searchName);
 
-searchBar.addEventListener('submit', () => {
-   searchName();
-})
+searchButton.addEventListener('click', searchName);
 
-searchButton.addEventListener('click', () => {
-   searchName();
-})
+searchBar.addEventListener('keyup', searchName);
 
 showPage(data, 1);
 addPagination(data);
