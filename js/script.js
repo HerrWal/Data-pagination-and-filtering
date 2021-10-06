@@ -43,7 +43,7 @@ This function will create and insert/append the elements needed for the paginati
 // The function accept a single list parameter. And create pagination buttons
 // ass needed. One page per 9 students, in this case.
 function addPagination (list) {
-   const paginationBtns = Math.ceil(list.length / 9);
+   const paginationBtns = list.length / 9;
    const linkList = document.querySelector('.link-list');
    linkList.innerHTML = '';
    const pagination = document.querySelector('.pagination');
