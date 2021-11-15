@@ -80,10 +80,6 @@ Extra Credit: Search bar
 */
 
 // DOM elements for a searchbar and a button and write JS to add functionality.
-function createElement(elementName) {
-   const element = document.createElement(elementName);
-   return element;
-}
 
 const header = document.querySelector('.header');
 const label = createElement('label');
@@ -103,6 +99,11 @@ span.textContent = 'Search by name';
 searchButton.appendChild(img);
 label.append(span, searchBar, searchButton);
 header.insertAdjacentElement('beforeend', label);
+
+function createElement(elementName) {
+   const element = document.createElement(elementName);
+   return element;
+}
 
 // The function searchName to perform a search.
 const searchName = () => {
